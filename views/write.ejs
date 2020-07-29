@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href='/index.css'/>
+  <title><%=title%></title>
+</head>
+<body>
+  <%-include('header')%>
+  <div class="mainContent">
+    <div class="formTitle">Write Todo</div>
+    <form class="form">
+      <input class='formInput' type='text' placeholder="Title" name='title' required autofocus></input>
+      <input class='formInput' type='date' placeholder="Date" name='date' required></input>
+      <textarea class='formTextArea' placeholder="Write something here..." name="text" required></textarea>
+      <input class='formInputBtn' type="submit" value="submit">
+    </form>
+  </div>
+  <%-include('footer')%>
+  <script>
+
+  </script>
+</body>
+</html>

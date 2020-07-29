@@ -3,11 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href='/index.css'/>
   <title><%=title%></title>
 </head>
 <body>
-  <div>
-    메인 페이지
-  </div>
+  <%-include('header')%>
+  <% if(user && user.id) { %>
+    <div class="mainContent firstPage">
+      <div class="greeting">HI!</div>
+      <div class="explain">Save your Todos</div>
+    </div>
+  <%} else { %>
+    <div class="mainContent firstPage">
+      <div class="explain">Save your Todos</div>
+      <div class="accountExplain">If you don't have a account</div>
+      <a href='/join' class="joinBtn">Join here</a>
+    </div>
+  <% } %>
+  <%-include('footer')%>
+  <script>
+    function logout(e){
+      e.preventDefault();
+      console.log("logout");
+    }
+  </script>
 </body>
 </html>
