@@ -155,3 +155,53 @@ body{
 }
 
 /* ==========================(todos)======================= */
+.todo{
+  margin : 10px;
+  border : 1px solid black;
+  border-radius: 10px;
+  width : 600px;
+  min-height : 150px;
+}
+
+.todoHeader{
+  display : flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  height : 30px;
+}
+
+.todoTitle{
+  margin:10px;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.btns{
+  margin :10px;
+}
+
+.btn{
+  border-radius: 10px;
+  width :80px;
+  height: 25px;
+  font-weight:bold;
+  color :white;
+}
+
+.complete{
+  border: 1px solid green;
+  background-color: green;
+}
+.edit {
+  border: 1px solid orange;
+  background-color: orange;
+}
+.delete{
+  border: 1px solid red;
+  background-color: red;
+}
+
+.todoContents{
+  margin :5px;
+}

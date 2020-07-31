@@ -9,11 +9,27 @@
 <body>
   <%-include('header')%>
   <div class="mainContent">
-    <div class="todo">
-      <div class="">
 
+    <div class="todo">
+      <div class="todoHeader">
+        <div class="todoTitle">todo title</div> <!--20자 제한-->
+        <div class="todoDate">yyyy.mm.dd</div>
+        <div class="btns">
+          <button class="btn complete">complete</button>
+          <button class="btn edit" onclick="location.href='/edit'">edit</button>
+          <button class="btn delete">delete</button>
+        </div>
+      </div>
+      <div class="todoMain">
+        <div class="todoContents">
+          이제 다 귀찮아
+        </div>
+        <div class="todoPriority">
+          
+        </div>
       </div>
     </div>
+
   </div>
   <%-include('footer')%>
   <script>
