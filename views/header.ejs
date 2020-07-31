@@ -1,20 +1,19 @@
 <div id='header' class="header">
   <div class="title">Todo Express</div>
-  <div class="nav">
-    <a href='/' class="link">Home</a>
-    <a href='/todos' class="link">Todos</a>
-    <a href='/write' class="link">Write</a>
-    <a class="link" href='/logout' onclick="logout(event)">Logout</a>
-  </div>
-  <!-- <% if(user && user.id) { %> -->
-  
-  <!-- <%}else {%>
+  <% if(user && user.id) { %>
+    <div class="nav">
+      <a href='/' class="link">Home</a>
+      <a href='/todos' class="link">Todos</a>
+      <a href='/write' class="link">Write</a>
+      <a class="link" href='/logout' onclick="logout(event)">Logout</a>
+    </div>
+  <%}else {%>
     <div class="nav">
       <a href='/' class="link">Home</a>
       <a href='/join' class="link">Join</a>
       <a href='/login' class="link">Login</a>
     </div>
-  <%}%> -->
+  <%}%>
 </div>
 
 <script>

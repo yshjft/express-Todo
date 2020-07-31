@@ -202,6 +202,21 @@ body{
   background-color: red;
 }
 
+.todoMain{
+  display : flex;
+  justify-content:space-between;
+}
+
 .todoContents{
   margin :5px;
+}
+
+.pbtn{
+  margin:5px;
+  width: 50px;
+  height: 30px;
+  border : 1px solid black;
+  border-radius: 10px;
+  background-color: black;
+  color : white;
 }
