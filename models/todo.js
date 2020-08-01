@@ -1,4 +1,4 @@
-module.export=(sequelize, DataTypes)=>{
+module.exports=(sequelize, DataTypes)=>{
   return sequelize.define('todo',{
     title:{
       type:DataTypes.STRING(20),

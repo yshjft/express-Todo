@@ -1,48 +1,50 @@
 const express=require('express');
-
+const {isLoggedIn, isNotLoggedIn}=require('./middlewares');
 const router=express.Router();
 
 router.get('/', (req, res)=>{
   res.render('index', {
     title : 'Todo list',
-    user : null,
+    user : req.user,
   });
 });
 
 
-router.get('/join', (req, res)=>{
+router.get('/join', isNotLoggedIn, (req, res)=>{
   res.render('join',{
     title : 'join',
-    user:null,
+    user:req.user,
+    joinError :req.flash('joinError'),
   });
 });
 
-router.get('/login', (req, res)=>{
+router.get('/login', isNotLoggedIn, (req, res)=>{
   res.render('login',{
     title : 'login',
-    user:null,
+    user:req.user,
+    loginError:req.flash('loginError'),
   });
 });
 
-router.get('/todos', (req, res)=>{
+router.get('/todos', isLoggedIn, (req, res)=>{
   res.render('todos',{
     title : 'todos',
-    user:null,
+    user:req.user,
     todos:null,
   });
 });
 
-router.get('/write', (req, res)=>{
+router.get('/write', isLoggedIn, (req, res)=>{
   res.render('write',{
     title : 'write',
-    user:null,
+    user:req.user,
   });
 });
 
-router.get('/edit', (req, res)=>{
+router.get('/edit', isLoggedIn, (req, res)=>{
   res.render('edit',{
     title : 'edit todo',
-    user:null,
+    user:req.user,
   });
 });
 
