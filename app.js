@@ -9,6 +9,7 @@ require('dotenv').config();
 
 const pageRouter=require('./routes/page');
 const authRouter=require('./routes/auth');
+const todoRouter=require('./routes/todo');
 const {sequelize}=require('./models');
 const passportConfig=require('./passport');
 
@@ -35,11 +36,12 @@ app.use(session({
   }
 }));
 app.use(flash());
-app.use(passport.initialize());
+app.use(passport.initialize());;
 app.use(passport.session());
 
 app.use('/', pageRouter);
 app.use('/auth', authRouter);
+app.use('/todo', todoRouter);
 
 app.use((req, res, next)=>{
   const error = new Error('Not Found');

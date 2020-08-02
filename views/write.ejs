@@ -11,18 +11,14 @@
   <div class="mainContent">
     <div class="formTitle">Write Todo</div>
     <form class="form" method='POST' action='/todo/write'>
-      <input class='formInput' type='text' placeholder="Title" name='title' required autofocus></input>
-      <input class='formInput' type='date' placeholder="Date" name='date' required></input>
-      <textarea class='formTextArea' placeholder="Write something here..." name="text" required></textarea>
-      <input class='formInputBtn' type="submit" value="submit" onclick="tmp(event)">
+      <input id="title" class='formInput' type='text' placeholder="Title" name='title' required autofocus></input>
+      <input id="date" class='formInput' type='date' placeholder="Date" name='date' required></input>
+      <textarea id="text" class='formTextArea' placeholder="Write something here..." name="text" required></textarea>
+      <input class='formInputBtn' type="submit" value="submit">
     </form>
   </div>
   <%-include('footer')%>
   <script>
-    function evnet(e){
-      e.preventDefault();
-      console.log("!!!");
-    }
   </script>
 </body>
 </html>
