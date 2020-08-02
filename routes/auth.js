@@ -32,13 +32,13 @@ router.post('/join', isNotLoggedIn, async (req, res, next)=>{
 //login
 router.post('/login', isNotLoggedIn, (req, res, next)=>{
     passport.authenticate('local', (authError, user, info)=>{
-        if (!authError){
+        if (authError){
             console.error(authError);
             return next(authError);
         }
         if(!user){
+            console.log("!!!");
             req.flash('loginError', info.message);
-            console.log("!!!!!!!!!!!!");
             return res.redirect('/login');
         }
         return req.login(user, (loginError)=>{

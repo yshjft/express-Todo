@@ -4,8 +4,8 @@ const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
 const sequelize=new Sequelize(
-  config.database, config.password, config.username, config
-);
+  config.database, config.username, config.password, config
+); //순서 지킬 것
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

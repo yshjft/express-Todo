@@ -19,6 +19,16 @@
 <script>
   function logout(e){
       e.preventDefault();
-      console.log("logout");
+      const xhr=new XMLHttpRequest();
+      xhr.onload=function(){
+        location.href='/';
+      }
+
+      xhr.onerror=function(){
+        console.error(xhr.responseText);
+      }
+
+      xhr.open('GET', '/auth/logout');
+      xhr.send();
     }
 </script>

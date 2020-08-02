@@ -20,7 +20,6 @@ module.exports=(passport)=>{
             }else{
                 done(null, false, {message : 'This account does not exist'});
             }
-
         }catch(error){
             console.error(error);
             done(error);

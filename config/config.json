@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "hys060578",
-    "database": "ExpressTodo",
+    "database": "todo",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorAliases": false

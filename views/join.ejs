@@ -14,15 +14,15 @@
       <input class='formInput' type='email' placeholder="Email" name="email" required autofocus></input>
       <input class='formInput' type='text' placeholder="Nick" name="nick" required></input>
       <input class='formInput'type='password' placeholder="Password" name="password" required></input>
+      <div className='alert'>
+        <% if(joinError){ %>
+          <div>
+            <%=joinError %>
+          </div>
+        <% } %>
+      </div>
       <input class='formInputBtn' type="submit" value="submit"></input>
     </form>
-    <div className='alert'>
-      <% if(joinError){ %>
-        <div>
-          <%=joinError %>
-        </div>
-      <% } %>
-    </div>
   </div>
   <%-include('footer')%>
   <script>
