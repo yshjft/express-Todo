@@ -163,14 +163,18 @@ body{
   min-height : 150px;
 }
 
-
-
 .todoHeader{
   display : flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid black;
   height : 30px;
+}
+
+.important{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: rgba(255, 0, 0, 0.8);
 }
 
 .todoTitle{

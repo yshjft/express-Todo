@@ -39,12 +39,16 @@ router.delete('/delete', isLoggedIn, (req, res)=>{
      })
 });
 
-router.patch('/up', isLoggedIn, (req, res)=>{
-
-});
-
-router.patch('/down', isLoggedIn, (req, res)=>{
-
+router.patch('/priority', isLoggedIn, (req, res)=>{
+    const {id, priority}=req.body;
+    Todo.update({priority : priority}, {where : {id : id}})
+        .then((result)=>{
+            res.send('priority change');
+        })
+        .catch((error)=>{
+            console.error(error);
+            next(error);
+        });
 });
 
 module.exports=router;
