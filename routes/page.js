@@ -65,10 +65,29 @@ router.get('/write', isLoggedIn, (req, res)=>{
   });
 });
 
-router.get('/edit', isLoggedIn, (req, res)=>{
+router.get('/edit/:id', isLoggedIn, async(req, res)=>{
+
+  const _todo=await Todo.findOne({
+    attributes : ['id', 'title', 'date', 'text'],
+    where : {id : req.params.id},
+  });
+
+  let year= _todo.date.getFullYear();
+  let month=_todo.date.getMonth()+1;
+  if(month < 10){
+    month="0"+month;
+  }
+  let date=_todo.date.getDate();
+  if(date < 10){
+    date="0"+date;
+  }
+  const  _fullDate=year+"-"+month+"-"+date;
+  _todo.fullDate=_fullDate ;
+
   res.render('edit',{
     title : 'edit todo',
     user:req.user,
+    todo : _todo,
   });
 });
 

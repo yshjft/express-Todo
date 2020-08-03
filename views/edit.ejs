@@ -10,16 +10,42 @@
   <%-include('header')%>
   <div class="mainContent">
     <div class="formTitle">Edit Todo</div>
-    <form class="form">
-      <input class='formInput' type='text' name='title' value="~~~" onchange required autofocus></input>
-      <input class='formInput' type='date' name='date' value="2020-08-01" onchange required></input>
-      <textarea class='formTextArea' name="text" onchange required>~~~~~~~</textarea>
-      <input class='formInputBtn' type="submit" value="submit">
-    </form>
+    <div class="form">
+      <input id='title' class='formInput' type='text' name='title' value="<%=todo.title%>" onchange required autofocus></input>
+      <input id='date' class='formInput' type='date' name='date' value="<%=todo.fullDate%>" onchange required></input>
+      <textarea id='text' class='formTextArea' name="text" onchange required><%=todo.text%></textarea>
+      <input id='id' type='hidden' name='id' value="<%=todo.id%>"></input>
+      <button class='formInputBtn'onclick="edit()">submit</button>
+    </div>
   </div>
   <%-include('footer')%>
   <script>
+    function edit(){
+      let _title=document.getElementById('title').value;
+      let _date=document.getElementById('date').value;
+      let _text=document.getElementById('text').value;
+      let _id=document.getElementById('id').value;
 
+      let data={
+        id : _id,
+        title : _title,
+        date : _date,
+        text : _text,
+      }
+
+      const xhr=new XMLHttpRequest();
+      xhr.onload=function(){
+        location.href='/todos';
+      }
+
+      xhr.onerror=function(){
+        console.error(xhr.responseText);
+      }
+
+      xhr.open('PATCH', '/todo/edit');
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify(data));
+    }
   </script>
 </body>
 </html>
