@@ -163,6 +163,8 @@ body{
   min-height : 150px;
 }
 
+
+
 .todoHeader{
   display : flex;
   justify-content: space-between;
@@ -200,6 +202,11 @@ body{
 .delete{
   border: 1px solid red;
   background-color: red;
+}
+
+.done{
+  border: 1px solid silver;
+  background-color : silver;
 }
 
 .todoMain{

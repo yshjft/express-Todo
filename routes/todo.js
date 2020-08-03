@@ -16,23 +16,20 @@ router.post('/write', isLoggedIn, async(req, res)=>{
     res.redirect('/todos');
 });
 
-router.patch('/complete', isLoggedIn, (req, res)=>{
-    Todo.update({complete : req.body.complete}, {where : {id :req.body.id}})
-        .then(result=>{
-            res.send('success');
-        })
-        .catch(error=>{
-            console.error(error);
-            next(error);
-        });
-});
-
 router.patch('/edit', isLoggedIn, (req, res)=>{
 
 });
 
 router.delete('/delete', isLoggedIn, (req, res)=>{
 
+    Todo.destroy({where : {id : req.body.id}})
+     .then((result)=>{
+         res.send('remove');
+     })
+     .catch((error)=>{
+         console.error(error);
+         next(error);
+     })
 });
 
 router.patch('/up', isLoggedIn, (req, res)=>{

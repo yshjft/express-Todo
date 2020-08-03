@@ -31,7 +31,7 @@ router.get('/login', isNotLoggedIn, (req, res)=>{
 router.get('/todos', isLoggedIn, async(req, res)=>{
   const _id=req.user.id;
   const _todos=await Todo.findAll({
-    attributes :['id', 'title', 'date', 'text', 'priority', 'complete'],
+    attributes :['id', 'title', 'date', 'text', 'priority'],
     where : {userId : _id},
     order : [['priority', 'DESC'], ['date', 'ASC']],
   });

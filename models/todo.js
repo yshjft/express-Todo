@@ -16,10 +16,6 @@ module.exports=(sequelize, DataTypes)=>{
       type : DataTypes.INTEGER,
       defaultValue:1, //1은 안급합, 2는 급함
     },
-    complete:{
-      type: DataTypes.INTEGER,
-      defaultValue:0, //1은 완료, 0은 미완료
-    }
   },{
     timestamps : true,
   })

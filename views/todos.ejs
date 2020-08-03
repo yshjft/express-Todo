@@ -15,9 +15,8 @@
           <div class="todoTitle"><%=todos[i].title %></div>
           <div class="todoDate"><%=todos[i].fullDate %></div>
           <div class="btns">
-            <button class="btn complete" onclick="complete('<%=todos[i].id%>', '<%=todos[i].complete%>')">complete</button>
             <button class="btn edit" onclick="location.href='/edit'">edit</button>
-            <button class="btn delete">delete</button>
+            <button class="btn delete" onclick="deleteTodo('<%=todos[i].id%>')">delete</button>
           </div>
         </div>
         <div class="todoMain">
@@ -35,29 +34,26 @@
   </div>
   <%-include('footer')%>
   <script>
-    function complete(_id, _complete){
-      if(_complete==='0'){
-        _complete=1;
-      }else if(_complete==='1'){
-        _complete=0;
-      }
+    function deleteTodo(_id){
+      if(confirm('really')){
+        let data={
+          id : _id
+        }
 
-      let data={
-        id : _id,
-        complete : _complete,
-      };
+        const xhr= new XMLHttpRequest();
+        xhr.onload=function(){
+          location.href='/todos';
+        }
 
-      const xhr=new XMLHttpRequest();
-      xhr.onload=function(){
-        // console.log(xhr.responseText);
+        xhr.onerror=function(){
+          console.error(xhr.responseText);
+        }
+
+        xhr.open('DELETE', '/todo/delete')
+        xhr.setRequestHeader('Content-Type','application/json');
+        xhr.send(JSON.stringify(data));
+
       }
-      xhr.onerror=function(){
-        console.error(xhr.responseText);
-      }
-      
-      xhr.open('PATCH','/todo/complete');
-      xhr.setRequestHeader('Content-Type', 'application/json');
-      xhr.send(JSON.stringify(data));
     }
   </script>
 </body>
