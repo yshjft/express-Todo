@@ -11,7 +11,6 @@ router.get('/', (req, res)=>{
   });
 });
 
-
 router.get('/join', isNotLoggedIn, (req, res)=>{
   res.render('join',{
     title : 'join',

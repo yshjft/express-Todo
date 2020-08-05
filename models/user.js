@@ -15,5 +15,8 @@ module.exports=(sequelize, DataTypes)=>{
     }
   },{
     timestamps: true,
+    //데이터베이스 문자열 한글 지원
+    charset : 'utf8',
+    collate : 'utf8_general_ci',
   })
 };
