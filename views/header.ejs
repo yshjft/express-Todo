@@ -5,8 +5,9 @@
       <a href='/' class="link">Home</a>
       <a href='/todos' class="link">Todos</a>
       <a href='/write' class="link">Write</a>
-      <a class="link" href='/logout' onclick="logout(event)">Logout</a>
+      <a href='/logout' id="logout" class="link" >Logout</a>
     </div>
+    <script src='../header.js'></script>
   <%}else {%>
     <div class="nav">
       <a href='/' class="link">Home</a>
@@ -15,20 +16,3 @@
     </div>
   <%}%>
 </div>
-
-<script>
-  function logout(e){
-      e.preventDefault();
-      const xhr=new XMLHttpRequest();
-      xhr.onload=function(){
-        location.href='/';
-      }
-
-      xhr.onerror=function(){
-        console.error(xhr.responseText);
-      }
-
-      xhr.open('GET', '/auth/logout');
-      xhr.send();
-    }
-</script>

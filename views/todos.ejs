@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href='/index.css'/>
+  <%-include('head')%>
   <title><%=title%></title>
 </head>
 <body>
@@ -11,13 +9,12 @@
   <div class="mainContent">
     <% for(let i=0; i < todos.length; i++) { %>
       <div class="todo">
-
         <% if(todos[i].priority === 1) {%>
           <div class="todoHeader">
             <div class="todoTitle"><%=todos[i].title %></div>
             <div class="todoDate"><%=todos[i].fullDate %></div>
             <div class="btns">
-              <button class="btn edit" onclick="location.href='/edit/<%=todos[i].id%>'">edit</button>
+              <button class="btn edit" name="<%=todos[i].id%>">edit</button>
               <button class="btn delete" onclick="deleteTodo('<%=todos[i].id%>')">delete</button>
             </div>
           </div>
@@ -26,7 +23,7 @@
             <div class="todoTitle"><%=todos[i].title %></div>
             <div class="todoDate"><%=todos[i].fullDate %></div>
             <div class="btns">
-              <button class="btn edit" onclick="location.href='/edit/<%=todos[i].id%>'">edit</button>
+              <button class="btn edit" name="<%=todos[i].id%>">edit</button>
               <button class="btn delete" onclick="deleteTodo('<%=todos[i].id%>')">delete</button>
             </div>
           </div>
@@ -42,10 +39,12 @@
           </div>
         </div>
       </div>
+      <input id="todoID" type="hidden" value="<%=todos[i].id%>"></input>
     <% } %>
   </div>
   <%-include('footer')%>
-  <script>
+  <script src='../todos.js'></script>
+  <!-- <script>
     function deleteTodo(_id){
       if(confirm('really')){
         let data={
@@ -102,6 +101,6 @@
       xhr.setRequestHeader('Content-Type','application/json');
       xhr.send(JSON.stringify(data));
     }
-  </script>
+  </script> -->
 </body>
 </html>
