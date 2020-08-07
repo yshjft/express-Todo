@@ -20,7 +20,7 @@ router.patch('/edit', isLoggedIn, (req, res)=>{
     const {id, title, date, text}=req.body;
     Todo.update({title : title, date : date, text : text}, {where : {id : id}})
         .then((result)=>{
-            res.redirect('/todos');
+            res.send(result);
         })
         .catch((error)=>{
             console.error(error);

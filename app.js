@@ -74,8 +74,8 @@ app.use('/todo', todoRouter);
 app.use((req, res, next)=>{
   const error = new Error('Not Found');
   error.status=404;
-  logger.info('hello');
-  logger.error(error.message);
+  // logger.info('hello');
+  // logger.error(error.message);
   next(error);
 });
 
