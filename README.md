@@ -3,11 +3,10 @@ express로 todo를 만들기
 
 #### 1. 기능
 * 회원 가입
+<img src="./mdimg/ezgif-6-234d80b6db20.gif">
+
 * 로그인/로그아웃
-* Todo 등록(제목, 날짜, 내용)
-* Todo 삭제
-* Todo 수정
-* Todo 우선순위 변경
+* Todo 등록(제목, 날짜, 내용) / 수정 / 우선순위 변경 / 삭제
 
 #### 2. 데이터베이스
 * mysql
